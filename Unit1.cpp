@@ -1,0 +1,369 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+int x=-4,y=-4;
+int do_wygranej=28;
+
+bool kolizja(TImage * pilka, TImage * cegla)
+{
+   if(pilka->Left >= cegla->Left - pilka->Width &&
+      pilka->Left <= cegla->Left + cegla->Width &&
+      pilka->Top>= cegla->Top - pilka->Height &&
+      pilka->Top <=cegla->Top + cegla->Height)
+      {
+      return true;
+      }
+   else return false;
+}
+
+
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Timer_pilkaTimer(TObject *Sender)
+{
+ b->Left+=x;
+ b->Top+=y;
+
+
+ //odbij od lewej sciany
+ if(b->Left-5<=Tlo->Left) x=-x;
+
+ //odbij od gornej
+
+ if(b->Top-5<=Tlo->Top) y=-y;
+
+ //odbij od prawej
+
+ if(b->Left+b->Width+5>=Tlo->Width) x=-x;
+
+ // przegrana
+
+ if(b->Top >= p->Top+p->Height+30)
+ {
+ Timer_pilka->Enabled=false;
+ b->Visible=false;
+ Button1->Caption="Pora¿ka! Jeszcze raz?";
+ Button1->Visible=true;
+ }
+ else if (b->Left > p->Left-b->Width/2 &&  b->Left < p->Left+p->Width &&
+          b->Top+b->Height > p->Top)
+ {
+     if(y>0) y=-y;
+ }
+ if(do_wygranej<=0)
+ {
+  Timer_pilka->Enabled=false;
+  b->Visible=false;
+  Button1->Caption="Wygrana! jeszcze raz?";
+  Button1->Visible=true;
+
+
+
+ }
+
+ //kolizja blok 1
+  if(kolizja(b,Image1)==true && Image1->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image1->Visible=false;
+  do_wygranej--;
+  }
+   //kolizja blok 10
+  if(kolizja(b,Image10)==true && Image10->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image10->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 11
+  if(kolizja(b,Image11)==true && Image11->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image11->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 12
+  if(kolizja(b,Image12)==true && Image12->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image12->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 13
+  if(kolizja(b,Image13)==true && Image13->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image13->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 1
+  if(kolizja(b,Image14)==true && Image14->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image14->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 15
+  if(kolizja(b,Image15)==true && Image15->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image15->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 16
+  if(kolizja(b,Image16)==true && Image16->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image16->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 17
+  if(kolizja(b,Image17)==true && Image17->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image17->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 18
+  if(kolizja(b,Image18)==true && Image18->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image18->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 19
+  if(kolizja(b,Image19)==true && Image19->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image19->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 2
+  if(kolizja(b,Image2)==true && Image2->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image2->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 20
+  if(kolizja(b,Image20)==true && Image20->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image20->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 21
+  if(kolizja(b,Image21)==true && Image21->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image21->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 22
+  if(kolizja(b,Image22)==true && Image22->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image22->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 23
+  if(kolizja(b,Image23)==true && Image23->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image23->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 24
+  if(kolizja(b,Image24)==true && Image24->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image24->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 25
+  if(kolizja(b,Image25)==true && Image25->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image25->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 26
+  if(kolizja(b,Image26)==true && Image26->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image26->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 27
+  if(kolizja(b,Image27)==true && Image27->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image27->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 28
+  if(kolizja(b,Image28)==true && Image28->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image28->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 3
+  if(kolizja(b,Image3)==true && Image3->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image3->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 4
+  if(kolizja(b,Image4)==true && Image4->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image4->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 5
+  if(kolizja(b,Image5)==true && Image5->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image5->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 6
+  if(kolizja(b,Image6)==true && Image6->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image6->Visible=false;
+  do_wygranej--;
+  }
+ //kolizja blok 7
+  if(kolizja(b,Image7)==true && Image7->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image7->Visible=false;
+  do_wygranej--;
+  }
+   //kolizja blok 8
+  if(kolizja(b,Image8)==true && Image8->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image8->Visible=false;
+  do_wygranej--;
+  }
+   //kolizja blok 9
+  if(kolizja(b,Image9)==true && Image9->Visible==true)
+  {
+  x=-x;
+  y=-y;
+  Image9->Visible=false;
+  do_wygranej--;
+  }
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::LewoTimer(TObject *Sender)
+{
+if(p->Left>10) p->Left -=10;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::prawoTimer(TObject *Sender)
+{
+if(p->Left+p->Width <Tlo->Width-10) p->Left +=10;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::FormKeyDown(TObject *Sender, WORD &Key,
+      TShiftState Shift)
+{
+        if(Key == VK_LEFT) Lewo->Enabled=true;
+        if(Key == VK_RIGHT) prawo->Enabled=true;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
+      TShiftState Shift)
+{
+     if(Key == VK_LEFT) Lewo->Enabled=false;
+     if(Key == VK_RIGHT) prawo->Enabled=false;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+ b->Left=50;
+ b->Height=150;
+ b->Visible=true;
+ Timer_pilka->Enabled=true;
+ x=-4;
+ y=-4;
+ Button1->Visible=false;
+ do_wygranej=28;
+
+ Image1->Visible=true;
+ Image10->Visible=true;
+ Image11->Visible=true;
+ Image12->Visible=true;
+ Image13->Visible=true;
+ Image14->Visible=true;
+ Image15->Visible=true;
+ Image16->Visible=true;
+ Image17->Visible=true;
+ Image18->Visible=true;
+ Image19->Visible=true;
+ Image2->Visible=true;
+ Image20->Visible=true;
+ Image21->Visible=true;
+ Image22->Visible=true;
+ Image23->Visible=true;
+ Image24->Visible=true;
+ Image25->Visible=true;
+ Image26->Visible=true;
+ Image27->Visible=true;
+ Image28->Visible=true;
+ Image3->Visible=true;
+ Image4->Visible=true;
+ Image5->Visible=true;
+ Image6->Visible=true;
+ Image7->Visible=true;
+ Image8->Visible=true;
+ Image9->Visible=true;
+}
+//---------------------------------------------------------------------------
